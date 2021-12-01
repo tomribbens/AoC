@@ -1,19 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Day 1, part 2 of Advent of Code 2021
 
 import sys
 
-input_array = []
 with open(str(sys.argv[1])) as input_file:
-    for line in input_file:
-        input_array.append(int(line))
+    input_array = [int(line) for line in input_file]
 
 count = 0
-i = 3
+i = 3  # Starting at the 4th element, comparing it to the first
 
 while i < len(input_array):
-    if input_array[i] + input_array[i-1] + input_array[i-2] > input_array[i-1] + input_array[i-2] + input_array[i-3]:
+    if input_array[i] > input_array[i-3]:
         count += 1
 
     i += 1

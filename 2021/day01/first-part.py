@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Day 1, part 1 of Advent of Code 2021
 
@@ -6,13 +6,12 @@ import sys
 
 input_array = []
 with open(str(sys.argv[1])) as input_file:
-    for line in input_file:
-        input_array.append(int(line))
+    input_array = [int(line) for line in input_file]
 
-previous = -1
+previous = input_array[0]
 count = 0
-for i in input_array:
-    if previous < i and previous != -1:
+for i in input_array[1:]:
+    if previous < i:
         count += 1
 
     previous = i 
