@@ -9,13 +9,16 @@ import math
 with open(str(sys.argv[1])) as input_file:
     input_array = list(map(int, input_file.readline().strip().split(","))) 
 
-fuel = 0
+fuel1 = 0
+fuel2 = 0
 horizontal = math.floor(statistics.mean(input_array))
 
 print(horizontal)
 
 for i in input_array:
-    change = abs(i - horizontal)
-    fuel += change * (change + 1) / 2
+    change1 = abs(i - horizontal)
+    change2 = abs(i - (horizontal + 1))
+    fuel1 += change1 * (change1 + 1) / 2
+    fuel2 += change2 * (change2 + 1) / 2
 
-print(fuel)
+print(min(fuel1, fuel2))
